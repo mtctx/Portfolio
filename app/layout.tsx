@@ -17,7 +17,10 @@ export const metadata: Metadata = {
     description: "Backend Developer focused on privacy-first architectures",
     type: "website",
   },
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: '/favicon.png',
+  },
 }
 
 export default function RootLayout({
