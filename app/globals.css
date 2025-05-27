@@ -1,0 +1,279 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+}
+
+@layer base {
+  :root {
+    /* Light mode colors - optimized for accessibility */
+    --background: 0 0% 89%; /* #e2e2e2 */
+    --foreground: 0 0% 7%; /* #121212 */
+    --primary: 280 58% 55%; /* Darker for better contrast */
+    --secondary: 275 84% 55%; /* Darker for better contrast */
+    --accent: 282 60% 50%; /* Darker for better contrast */
+
+    /* shadcn/ui variables for light mode */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+    --primary-foreground: 0 0% 100%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 35%; /* Darker for better contrast */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 280 58% 55%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark mode colors - optimized for accessibility */
+    --background: 300 63% 3%; /* #09030d */
+    --foreground: 0 0% 89%; /* #e2e2e2 */
+    --primary: 280 64% 45%; /* Lighter for better contrast */
+    --secondary: 275 84% 45%; /* Lighter for better contrast */
+    --accent: 282 64% 50%; /* Lighter for better contrast */
+
+    /* shadcn/ui variables for dark mode */
+    --card: 300 50% 8%;
+    --card-foreground: 0 0% 89%;
+    --popover: 300 50% 8%;
+    --popover-foreground: 0 0% 89%;
+    --primary-foreground: 0 0% 100%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 300 30% 15%;
+    --muted-foreground: 0 0% 70%; /* Lighter for better contrast */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 300 20% 20%;
+    --input: 300 20% 20%;
+    --ring: 280 64% 45%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  /* High contrast utility classes for accessibility */
+  .text-high-contrast {
+    color: #000000;
+    font-weight: 600;
+  }
+
+  .dark .text-high-contrast {
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .text-medium-contrast {
+    color: #2d2d2d;
+    font-weight: 500;
+  }
+
+  .dark .text-medium-contrast {
+    color: #d0d0d0;
+    font-weight: 500;
+  }
+
+  /* Custom utility classes using exact hex values with accessibility improvements */
+  .bg-custom {
+    background-color: #e2e2e2;
+  }
+
+  .dark .bg-custom {
+    background-color: #09030d;
+  }
+
+  .text-custom {
+    color: #121212;
+  }
+
+  .dark .text-custom {
+    color: #e2e2e2;
+  }
+
+  /* Primary colors with better contrast ratios */
+  .bg-primary-custom {
+    background-color: #9c4dcc; /* Darker in light mode for better contrast */
+  }
+
+  .dark .bg-primary-custom {
+    background-color: #8b5fbf; /* Lighter in dark mode for better contrast */
+  }
+
+  .bg-secondary-custom {
+    background-color: #8e47d9; /* Darker in light mode */
+  }
+
+  .dark .bg-secondary-custom {
+    background-color: #7c3aed; /* Lighter in dark mode */
+  }
+
+  .bg-accent-custom {
+    background-color: #8e3db8; /* Darker in light mode */
+  }
+
+  .dark .bg-accent-custom {
+    background-color: #a855f7; /* Lighter in dark mode */
+  }
+
+  .text-primary-custom {
+    color: #7c2d9e; /* Much darker for light mode accessibility */
+  }
+
+  .dark .text-primary-custom {
+    color: #c084fc; /* Much lighter for dark mode accessibility */
+  }
+
+  .text-secondary-custom {
+    color: #7c3aed; /* Darker for light mode */
+  }
+
+  .dark .text-secondary-custom {
+    color: #a78bfa; /* Lighter for dark mode */
+  }
+
+  .text-accent-custom {
+    color: #7c2d9e; /* Darker for light mode */
+  }
+
+  .dark .text-accent-custom {
+    color: #c084fc; /* Lighter for dark mode */
+  }
+
+  .border-primary-custom {
+    border-color: #9c4dcc;
+  }
+
+  .dark .border-primary-custom {
+    border-color: #8b5fbf;
+  }
+
+  .hover\:bg-primary-custom:hover {
+    background-color: #9c4dcc;
+  }
+
+  .dark .hover\:bg-primary-custom:hover {
+    background-color: #8b5fbf;
+  }
+
+  .hover\:bg-secondary-custom:hover {
+    background-color: #8e47d9;
+  }
+
+  .dark .hover\:bg-secondary-custom:hover {
+    background-color: #7c3aed;
+  }
+
+  .hover\:text-primary-custom:hover {
+    color: #7c2d9e;
+  }
+
+  .dark .hover\:text-primary-custom:hover {
+    color: #c084fc;
+  }
+
+  .hover\:border-primary-custom:hover {
+    border-color: #9c4dcc;
+  }
+
+  .dark .hover\:border-primary-custom:hover {
+    border-color: #8b5fbf;
+  }
+
+  /* Enhanced gradients with better contrast */
+  .gradient-primary {
+    background: linear-gradient(135deg, #9c4dcc 0%, #8e47d9 50%, #8e3db8 100%);
+  }
+
+  .dark .gradient-primary {
+    background: linear-gradient(135deg, #c084fc 0%, #a78bfa 50%, #a855f7 100%);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #7c2d9e 0%, #7c3aed 50%, #7c2d9e 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease-in-out infinite;
+  }
+
+  .dark .gradient-text {
+    background: linear-gradient(135deg, #c084fc 0%, #a78bfa 50%, #c084fc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease-in-out infinite;
+  }
+
+  @keyframes gradient-shift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .gradient-progress {
+    background: linear-gradient(90deg, #9c4dcc 0%, #8e47d9 100%);
+  }
+
+  .dark .gradient-progress {
+    background: linear-gradient(90deg, #c084fc 0%, #a78bfa 100%);
+  }
+
+  /* Enhanced card backgrounds for better contrast */
+  .bg-card-custom {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+  }
+
+  .dark .bg-card-custom {
+    background-color: #1a0f1f;
+    border: 1px solid #374151;
+  }
+
+  /* Muted backgrounds with better contrast */
+  .bg-muted-custom {
+    background-color: #f5f5f5;
+  }
+
+  .dark .bg-muted-custom {
+    background-color: #1f1425;
+  }
+
+  /* Enhanced text contrast for muted text */
+  .text-muted-accessible {
+    color: #4a4a4a; /* Much darker for light mode */
+  }
+
+  .dark .text-muted-accessible {
+    color: #b8b8b8; /* Much lighter for dark mode */
+  }
+}
